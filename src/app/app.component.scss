@@ -1,0 +1,19 @@
+.wrapper {
+  border: 1px solid red;
+  border-color: blue;
+  min-height: 30rem;
+  min-width: 30rem;
+
+  &__content {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+}
+
+.error {
+  color: red;
+  font-size: 10px;
+  text-decoration: underline;
+}

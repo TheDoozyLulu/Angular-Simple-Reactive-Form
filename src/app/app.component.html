@@ -1,0 +1,47 @@
+<div class="wrapper">
+  <form [formGroup]="myForm" novalidate>
+    <div class="wrapper__content">
+      Name: <input type="text" formControlName="name" />
+      <div
+        *ngIf="
+          (myForm.controls['name'].touched || myForm.controls['name'].dirty) &&
+          myForm.controls['name'].invalid
+        "
+      >
+        <div *ngIf="myForm.controls['name'].errors.required" class="error">
+          Name is required
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper__content">
+      <span class="">
+        Address: <input type="text" formControlName="address"
+      /></span>
+
+      <div
+        *ngIf="
+          (myForm.controls['address'].touched ||
+            myForm.controls['address'].dirty) &&
+          myForm.controls['address'].invalid
+        "
+      >
+        <div *ngIf="myForm.controls['address'].errors.required" class="error">
+          Address is required
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper__content">
+      <button
+        [disabled]="myForm.pristine || myForm.invalid"
+        (click)="saveMyForm()"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+
+  <p>Form value: {{ myForm.value | json }}</p>
+  <p>Form status: {{ myForm.status | json }}</p>
+</div>
